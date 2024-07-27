@@ -1,22 +1,24 @@
+import sys
+
+letters = 'abcdefghijklmnopqrstuvwxyz'
+
 def main():
     print('*** CAESAR CIPHER PROGRAM ***')
-    message = input("Enter the message: ")
+    message = str(input("Enter the message: "))
     key = int(input("Enter the shift value: "))
     check(message, key)
 
 def check(message, key):
-    choice = input("Press 'e' to encrypt, 'd' to decrypt, and 'q' to quit:  ")
+    choice = input("Press 'e' to encrypt, 'd' to decrypt and 'q' to quit: ")
     if choice.lower() == 'e':
-        print("Encrypted message:", encrypt(message, key))
+        print(encrypt(message, key))
     elif choice.lower() == 'd':
-        print("Decrypted message:", decrypt(message, key))
+        print(decrypt(message, key))
     elif choice.lower() == 'q':
-        exit()
+        sys.exit()
     else:
         print('Invalid Choice, Try Again')
         check(message, key)
-
-letters = 'abcdefghijklmnopqrstuvwxyz'
 
 def encrypt(plaintext, key):
     ciphertext = ''
@@ -49,4 +51,4 @@ def decrypt(ciphertext, key):
     return plaintext
 
 if __name__ == "__main__":
-    main()
+    main()    
